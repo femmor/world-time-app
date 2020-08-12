@@ -13,8 +13,10 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
 //    get data from the location page
     data = ModalRoute.of(context).settings.arguments;
+    print(data);
 
     return Scaffold(
+
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(0, 120.0, 0, 0),
@@ -25,7 +27,9 @@ class _HomeState extends State<Home> {
                   Navigator.pushNamed(context, "/location");
                 },
                 icon: Icon(Icons.edit_location),
-                label: Text("Edit Location"),
+                label: Text(
+                  "Edit Location",
+                ),
               ),
               SizedBox(height: 20.0),
               Row(
@@ -36,6 +40,7 @@ class _HomeState extends State<Home> {
                     style: TextStyle(
                       fontSize: 20.0,
                       letterSpacing: 2.0,
+                      color: Colors.white,
                     ),
                   ),
                 ],
@@ -44,8 +49,9 @@ class _HomeState extends State<Home> {
               Text(
                 data["time"],
                 style: TextStyle(
-                  fontSize: 60.0,
+                  fontSize: 50.0,
                   letterSpacing: 2.0,
+                  color: Colors.white,
                 ),
               ),
             ],
