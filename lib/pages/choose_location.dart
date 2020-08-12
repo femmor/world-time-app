@@ -6,6 +6,7 @@ class ChoodLocation extends StatefulWidget {
 }
 
 class _ChoodLocationState extends State<ChoodLocation> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +17,9 @@ class _ChoodLocationState extends State<ChoodLocation> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: Text("Choose Location Screen"),
+      body: Column(
+
+      ),
     );
   }
 }
