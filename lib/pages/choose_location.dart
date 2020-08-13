@@ -8,6 +8,7 @@ class ChoodLocation extends StatefulWidget {
 
 class _ChoodLocationState extends State<ChoodLocation> {
 
+//  List of locations
   List<WorldTime> locations = [
     WorldTime(url: 'Europe/London', location: 'London', flag: 'uk.png'),
     WorldTime(url: 'Europe/Berlin', location: 'Athens', flag: 'greece.png'),
@@ -18,6 +19,19 @@ class _ChoodLocationState extends State<ChoodLocation> {
     WorldTime(url: 'Asia/Seoul', location: 'Seoul', flag: 'south_korea.png'),
     WorldTime(url: 'Asia/Jakarta', location: 'Jakarta', flag: 'indonesia.png'),
   ];
+
+//  The method to update time
+  void updateTime(index) async {
+    WorldTime instance = locations[index];
+    await instance.getTime();
+//    Navigate to homescreen and pass the data tot the home screen
+    Navigator.pop(context, {
+      "location": instance.location,
+      "flag": instance.flag,
+      "time": instance.time,
+      "isDaytime": instance.isDaytime,
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +51,7 @@ class _ChoodLocationState extends State<ChoodLocation> {
             child: Card(
               child: ListTile(
                 onTap: (){
-
+                  updateTime(index);
                 },
                 title: Text(locations[index].location),
                 leading: CircleAvatar(
